@@ -1,0 +1,90 @@
+@import "../utils";
+
+.our-hosts {
+  padding: 90px 0 110px;
+  color: $main-black-color;
+  @media (max-width: 900px) {
+    padding: 70px 0 90px;
+  }
+  @media (max-width: 600px) {
+    padding: 50px 0 60px;
+  }
+  &__wrapper {
+    @include flex-style(flex, column, flex-start, center);
+  }
+  &__title {
+    margin-bottom: 10px;
+    @include h3;
+    @media (max-width: 600px) {
+      margin-bottom: 0;
+      @include h3-mobile;
+    }
+  }
+  &__message {
+    margin-bottom: 60px;
+    color: $dark-grey-color;
+    text-align: center;
+    @include body-1;
+    @media (max-width: 600px) {
+      margin-bottom: 30px;
+      @include body-2;
+    }
+  }
+  &__cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0 48px;
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 50px 24px;
+    }
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+      grid-gap: 50px 0;
+    }
+  }
+}
+
+.our-hosts-card {
+  @include flex-style(flex, column, flex-start, center);
+  &__comment-wrapper {
+    position: relative;
+    margin-bottom: 30px;
+    padding: 11px 15px;
+    border: 1px solid $border-color-lightgrey;
+  }
+  &__comment {
+    color: $main-black-color;
+    @include body-2;
+    text-align: center;
+  }
+  &__triangle {
+    position: absolute;
+    bottom: -18px;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg) translateX(-50%);
+    border-right: 1px solid $border-color-lightgrey;
+    border-bottom: 1px solid $border-color-lightgrey;
+    background: #fff;
+  }
+  &__photo-wrapper {
+    height: 48px;
+    width: 48px;
+    margin-bottom: 15px;
+  }
+  &__photo {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  &__person-name,
+  &__person-title {
+    @include body-2;
+  }
+  &__person-title {
+    color: $dark-grey-color;
+  }
+}

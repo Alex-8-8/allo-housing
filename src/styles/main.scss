@@ -1,7 +1,15 @@
 @import "utils";
-@import "fonts";
-@import "typography";
-
-body {
-  background: $c-gray;
-}
+@import "reset";
+@import "common";
+@import "header";
+@import "./home-page/featured-homes";
+@import "./home-page/trending-destinations";
+@import "./home-page/modern-apartment";
+@import "./home-page/find-place";
+@import "./home-page/our-hosts";
+@import "./home-page/our-blog";
+@import "./home-page/our-partners";
+@import "footer";
+@import "./search-results/search-results";
+@import "./details-page/details-page";
+@import "./search-results/mobile-filters";

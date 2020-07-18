@@ -1,0 +1,150 @@
+@import "../utils";
+
+.mobile-filters {
+  display: none;
+  padding: 15px;
+  color: $main-black-color;
+  &__title-wrapper {
+    @include flex-style(flex, row, space-between, center);
+    margin-bottom: 25px;
+  }
+  &__title {
+    @include h5;
+  }
+}
+
+.mobile-filters-form {
+  @include flex-style(flex, column);
+  &__buttons-wrapper {
+    @include flex-style(flex);
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  &__period-button {
+    @include flex-style(flex, row, center, center);
+    height: 52px;
+    width: 100%;
+    background: $sand-color;
+    @include body-2-bold;
+    text-transform: uppercase;
+    &--active {
+      background: #fff;
+      border: 1px solid rgba(139, 136, 129, 0.2);
+    }
+  }
+  &__select-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 16px;
+      transform: translateY(-50%);
+      height: 16px;
+      width: 14px;
+      background: url("../../images/magnifying-glass-small-icon.svg") no-repeat;
+    }
+  }
+  .ui-icon {
+    order: 1;
+    background: url("../../images/select-arrow.svg") no-repeat center !important;
+  }
+  .ui-selectmenu-button {
+    @include flex-style(flex, row, space-between, center);
+    width: 100%;
+    height: 52px;
+    padding: 0 15px 0 40px;
+    background: transparent;
+    border: 1px solid rgba(139, 136, 129, 0.2);
+    outline: none;
+    &:active {
+      border: 1px solid rgba(139, 136, 129, 0.2);
+      color: inherit;
+    }
+  }
+  .ui-selectmenu-text {
+    @include body-2;
+    color: $dark-grey-color;
+  }
+  &__inputs-wrapper {
+    @include flex-style(flex);
+    margin-bottom: 10px;
+  }
+  &__label {
+    position: relative;
+    width: 100%;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 16px;
+      transform: translateY(-50%);
+      height: 21px;
+      width: 12px;
+      background: url("../../images/select-arrow.svg") no-repeat center;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 16px;
+      transform: translateY(-50%);
+      height: 21px;
+      width: 14px;
+    }
+    &--arrive {
+      margin-right: 10px;
+    }
+    &--arrive,
+    &--depart {
+      &::before {
+        background: url("../../images/calendar-icon-small.svg") no-repeat center;
+      }
+    }
+    &--guests {
+      margin-bottom: 10px;
+      &::before {
+        background: url("../../images//person-icon-small.svg") no-repeat center;
+      }
+    }
+  }
+  &__input {
+    height: 52px;
+    width: 100%;
+    padding: 0 15px 0 40px;
+    border: 1px solid rgba(139, 136, 129, 0.2);
+    background: transparent;
+    &::placeholder {
+      @include body-2;
+      color: $dark-grey-color;
+    }
+  }
+  &__button {
+    @include flex-style(flex, row, center, center);
+    height: 52px;
+    width: 100%;
+    @include body-2-bold;
+    text-transform: uppercase;
+    border: 1px solid rgba(139, 136, 129, 0.2);
+    transition: background-color 0.3s;
+    &--advanced {
+      margin-bottom: 10px;
+      &:hover {
+        background: $sand-color;
+      }
+    }
+    &--search {
+      background: $button-gradient-color;
+      color: #fff;
+      transition: background-color 0.3s;
+      &:hover {
+        background: linear-gradient(74deg, #1d1d18 0%, #5a5955 100%);
+      }
+    }
+  }
+  &__settings-icon {
+    margin-right: 11px;
+  }
+}

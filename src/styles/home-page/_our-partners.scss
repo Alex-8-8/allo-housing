@@ -1,0 +1,152 @@
+@import "../utils";
+
+.our-partners {
+  position: relative;
+  padding: 90px 0 110px;
+  color: $main-black-color;
+  @media (max-width: 900px) {
+    padding: 70px 0 90px;
+  }
+  @media (max-width: 600px) {
+    padding: 50px 0 60px;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: $dark-grey-color;
+    opacity: 0.05;
+    z-index: -1;
+  }
+  &__title {
+    margin-bottom: 10px;
+    @include h3;
+    @media (max-width: 600px) {
+      margin-bottom: 0;
+      @include h3-mobile;
+    }
+  }
+}
+
+.partners-slider {
+  &__control {
+    @include flex-style(flex, row, space-between, center);
+    margin-bottom: 50px;
+    @media (max-width: 600px) {
+      margin-bottom: 20px;
+    }
+  }
+  &__message {
+    color: $dark-grey-color;
+    @include body-1;
+    @media (max-width: 600px) {
+      @include body-2;
+    }
+  }
+  &__buttons-wrapper {
+    @include flex-style(flex);
+    @media (max-width: 400px) {
+      display: none;
+    }
+    .partners-prev {
+      margin-right: 2px;
+    }
+    .partners-next,
+    .partners-prev {
+      @include prevNextSliderButton;
+    }
+  }
+  &__cards-wrapper {
+    min-width: 0;
+    width: 100%;
+    .slick-list {
+      min-width: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .slick-track {
+      @include flex-style(flex, row, space-between, center);
+      padding-top: 10px;
+      padding-bottom: 40px;
+      @media (max-width: 480px) {
+        @include flex-style(flex, row, space-around, center);
+      }
+    }
+    .slick-slide {
+      position: relative;
+      max-width: 277px;
+      height: 156px;
+      margin: 0 5px;
+      box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.25);
+      outline: none;
+      z-index: 1;
+      @media (max-width: 480px) {
+        max-width: 140px;
+        height: 80px;
+      }
+    }
+    .slick-arrow {
+      // position: absolute;
+      // z-index: 1;
+    }
+    .slick-dots {
+      @include flex-style(flex, row, center, center);
+      li {
+        position: relative;
+        width: 5px;
+        height: 5px;
+        margin-right: 25px;
+        button {
+          position: absolute;
+          top: 0;
+          left: 0;
+          font-size: 0;
+          line-height: 0;
+          padding: 2px;
+          cursor: pointer;
+          border: 0;
+          outline: none;
+          background: transparent;
+          &::after {
+            content: "";
+            font-size: 0;
+            line-height: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 5px;
+            background: $dark-grey-color;
+            border-radius: 50%;
+          }
+        }
+      }
+      .slick-active button {
+        &::after {
+          content: "";
+          font-size: 0;
+          line-height: 0;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 5px;
+          height: 5px;
+          background: $main-black-color;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
+
+.partners-slider-card {
+  min-width: 0;
+  &__image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}

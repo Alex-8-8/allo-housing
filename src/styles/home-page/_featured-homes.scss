@@ -1,0 +1,316 @@
+@import "../utils";
+
+.featured-homes {
+  position: relative;
+  padding: 90px 0 155px;
+  color: $main-black-color;
+  @media (max-width: 900px) {
+    padding: 70px 0 90px;
+  }
+  @media (max-width: 600px) {
+    padding: 50px 0 60px;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: $dark-grey-color;
+    opacity: 0.05;
+    z-index: -1;
+  }
+  &__title {
+    margin-bottom: 10px;
+    @include h3;
+    @media (max-width: 600px) {
+      @include h3-mobile;
+    }
+  }
+}
+
+.featured-slider {
+  &__control {
+    @include flex-style(flex, row, space-between, center);
+    margin-bottom: 60px;
+    @media (max-width: 600px) {
+      margin-bottom: 30px;
+    }
+  }
+  &__message {
+    color: $dark-grey-color;
+    @include body-1;
+    @media (max-width: 600px) {
+      @include body-2;
+    }
+  }
+  &__buttons-wrapper {
+    @include flex-style(flex);
+    @media (max-width: 400px) {
+      display: none;
+    }
+  }
+  .slick-prev {
+    margin-right: 2px;
+  }
+  .slick-prev,
+  .slick-next {
+    @include prevNextSliderButton;
+  }
+  &__cards-wrapper {
+    // @include flex-style(flex, row, space-between, center);
+    min-width: 0;
+    width: 100%;
+    .slick-list {
+      min-width: 0;
+      position: relative;
+      overflow: hidden;
+      margin: 0 -15px;
+      @media (max-width: 1210px) {
+        margin: 0;
+        width: 100%;
+      }
+    }
+    .slick-track {
+      @include flex-style(flex, row, space-between, center);
+      padding-bottom: 40px;
+      @media (max-width: 1210px) {
+        @include flex-style(flex, row, space-around, center);
+      }
+      // @media (max-width: 920px) {
+      //   @include flex-style(flex, row, space-between, center);
+      // }
+      @media (max-width: 768px) {
+        width: 400px;
+      }
+    }
+    .slick-slide {
+      position: relative;
+      height: 454px;
+      max-width: 360px;
+      // min-width: 360px;
+      margin: 0 15px;
+      background: #fff;
+      box-shadow: 0 18px 40px -40px rgba(0, 0, 0, 0.75);
+      outline: none;
+      z-index: 1;
+      @media (max-width: 1210px) {
+        margin: 0;
+        height: 351px;
+        max-width: 289px;
+        min-width: 289px;
+      }
+      @media (max-width: 340px) {
+        // margin: 0 50px;
+        height: 351px;
+        max-width: 280px;
+        min-width: 280px;
+      }
+    }
+    .slick-dots {
+      @include flex-style(flex, row, space-between, center);
+      margin: 0 auto;
+      max-width: 245px;
+      li {
+        position: relative;
+        width: 5px;
+        height: 5px;
+        // margin-right: 25px;
+        button {
+          position: absolute;
+          top: 0;
+          left: 0;
+          font-size: 0;
+          line-height: 0;
+          padding: 2px;
+          cursor: pointer;
+          border: 0;
+          outline: none;
+          background: transparent;
+          &::after {
+            content: "";
+            font-size: 0;
+            line-height: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 5px;
+            background: $dark-grey-color;
+            border-radius: 50%;
+          }
+        }
+      }
+      .slick-active button {
+        &::after {
+          content: "";
+          font-size: 0;
+          line-height: 0;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 5px;
+          height: 5px;
+          background: $main-black-color;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
+
+// .featured-card {
+//   position: relative;
+//   min-width: 0;
+//   &__image-wrapper {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 250px;
+//     z-index: -1;
+//     @media (max-width: 1210px) {
+//       height: 195px;
+//     }
+//   }
+//   &__bg-image {
+//     height: 100%;
+//     width: 100%;
+//     object-fit: cover;
+//   }
+//   &__image-overlay {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     height: 100%;
+//     width: 100%;
+//     background: linear-gradient(
+//       180.17deg,
+//       rgba(29, 29, 24, 0) 29.69%,
+//       rgba(29, 29, 24, 0.7) 99.79%
+//     );
+//   }
+//   &__top-block {
+//     position: relative;
+//     height: 250px;
+//     padding: 20px;
+//     @media (max-width: 1210px) {
+//       height: 195px;
+//     }
+//   }
+//   &__section-name {
+//     @include flex-style(flex, row, center, center);
+//     position: absolute;
+//     top: 20px;
+//     left: 20px;
+//     height: 22px;
+//     padding: 0 5px;
+//     background: $main-black-color;
+//     color: #fff;
+//     @include subtitlte;
+//   }
+//   &__cost-box {
+//     @include flex-style(flex, row, flex-start, flex-end);
+//     position: absolute;
+//     bottom: 20px;
+//     left: 25px;
+//     color: #fff;
+//   }
+//   &__cost {
+//     @include h4;
+//   }
+//   &__per-night {
+//     @include body-1-bold;
+//   }
+//   &__photo-wrapper {
+//     position: absolute;
+//     bottom: 20px;
+//     right: 20px;
+//     height: 36px;
+//     width: 36px;
+//   }
+//   &__photo {
+//     height: 100%;
+//     width: 100%;
+//     object-fit: cover;
+//     border: 1px solid #fff;
+//     border-radius: 50%;
+//   }
+//   &__bottom-block {
+//     height: 204px;
+//     width: 100%;
+//     padding: 20px 25px;
+//     @media (max-width: 1210px) {
+//       height: 156px;
+//       padding: 15px;
+//     }
+//   }
+//   &__title {
+//     @include body-1-bold;
+//     text-overflow: ellipsis;
+//     white-space: nowrap;
+//     overflow: hidden;
+//     @media (max-width: 1210px) {
+//       @include body-2-bold;
+//     }
+//   }
+//   &__description {
+//     margin-bottom: 20px;
+//     color: $dark-grey-color;
+//     @include body-2;
+//     @media (max-width: 1210px) {
+//       margin-bottom: 15px;
+//     }
+//   }
+//   &__facilities {
+//     @include flex-style(flex);
+//     flex-wrap: wrap;
+//     @media (max-width: 1210px) {
+//       margin-bottom: 15px;
+//     }
+//   }
+//   &__facilities-box:not(:last-child) {
+//     margin-right: 20px;
+//   }
+//   &__facilities-icon {
+//     margin-right: 5px;
+//   }
+//   &__facility-name {
+//     @include body-2;
+//     @media (max-width: 1210px) {
+//       display: none;
+//     }
+//     &--visible {
+//       display: block;
+//     }
+//   }
+//   &__secondary-facilities {
+//     margin-bottom: 20px;
+//   }
+//   &__rating-box {
+//     @include flex-style(flex, row, flex-start, center);
+//   }
+//   .stars {
+//     @include flex-style(flex);
+//     margin-right: 10px;
+//     .star {
+//       width: 15px;
+//       height: 15px;
+//       background-image: url("../images/star.svg");
+//       background-position: center;
+//       background-repeat: no-repeat;
+//     }
+//   }
+//   .stars--3 > .star:nth-child(-n + 3) {
+//     background-image: url("../images/active-star.svg");
+//   }
+//   &__rating-name {
+//     margin-right: auto;
+//     color: $dark-grey-color;
+//     @include body-2;
+//   }
+//   &__settings-button {
+//     background: transparent;
+//   }
+// }

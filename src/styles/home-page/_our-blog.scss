@@ -1,0 +1,221 @@
+@import "../utils";
+
+.our-blog {
+  position: relative;
+  padding: 90px 0 110px;
+  color: $main-black-color;
+  @media (max-width: 900px) {
+    padding: 70px 0 90px;
+  }
+  @media (max-width: 600px) {
+    padding: 50px 0 60px;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: $dark-grey-color;
+    opacity: 0.05;
+    z-index: -1;
+  }
+  &__title {
+    margin-bottom: 10px;
+    @include h3;
+    @media (max-width: 600px) {
+      margin-bottom: 0;
+      @include h3-mobile;
+    }
+  }
+  &__box {
+    @include flex-style(flex, row, space-between, center);
+    margin-bottom: 60px;
+    @media (max-width: 600px) {
+      margin-bottom: 30px;
+    }
+    @media (max-width: 480px) {
+      @include flex-style(flex, column, flex-start);
+    }
+  }
+  &__message {
+    color: $dark-grey-color;
+    @include body-1;
+    @media (max-width: 600px) {
+      @include body-2;
+    }
+    @media (max-width: 480px) {
+      margin-bottom: 30px;
+    }
+  }
+  &__link {
+    @include flex-style(flex, row, center, center);
+    position: relative;
+    height: 42px;
+    width: 170px;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+    @media (max-width: 480px) {
+      width: 100%;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: $dark-grey-color;
+      opacity: 0.2;
+    }
+    &:hover {
+      background: $sand-color;
+    }
+  }
+  &__cards-wrapper {
+    @include flex-style(flex, row, space-between);
+    @media (max-width: 940px) {
+      @include flex-style(flex, column, flex-start, center);
+    }
+  }
+}
+
+.our-blog-card {
+  position: relative;
+  height: 100%;
+  max-width: 360px;
+  box-shadow: 0 5px 18px 0 rgba(0, 0, 0, 0.25);
+  &:hover .our-blog-card__image {
+    transform: scale(1.1);
+  }
+  @media (max-width: 1320px) {
+    max-width: 290px;
+  }
+  @media (max-width: 940px) {
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+    max-width: 360px;
+  }
+  @media (max-width: 430px) {
+    max-width: 290px;
+  }
+  &__image-wrapper {
+    position: relative;
+    height: 240px;
+    width: 100%;
+    overflow: hidden;
+    cursor: pointer;
+    @media (max-width: 1320px) {
+      height: 200px;
+    }
+    @media (max-width: 940px) {
+      height: 240px;
+    }
+    @media (max-width: 430px) {
+      height: 200px;
+    }
+  }
+  &__image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+  &__image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(
+      180.15deg,
+      rgba(29, 29, 24, 0) 50%,
+      rgba(29, 29, 24, 0.7) 99.8%
+    );
+  }
+  &__main-wrapper {
+    height: 233px;
+    padding: 20px 24px;
+    background: #fff;
+    @media (max-width: 1320px) {
+      height: 210px;
+      padding: 15px;
+    }
+    @media (max-width: 940px) {
+      height: 233px;
+      padding: 20px 24px;
+    }
+    @media (max-width: 430px) {
+      height: 210px;
+      padding: 15px;
+    }
+  }
+  &__title {
+    margin-bottom: 5px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    @include body-1-bold;
+    @media (max-width: 1320px) {
+      @include body-2-bold;
+    }
+    @media (max-width: 940px) {
+      @include body-1-bold;
+    }
+    @media (max-width: 430px) {
+      @include body-2-bold;
+    }
+  }
+  &__box {
+    @include flex-style(flex, row, flex-start, center);
+    margin-bottom: 20px;
+    margin-right: 20px;
+    @media (max-width: 1320px) {
+      margin-bottom: 15px;
+    }
+    @media (max-width: 940px) {
+      margin-bottom: 20px;
+    }
+    @media (max-width: 430px) {
+      margin-bottom: 15px;
+    }
+  }
+  &__icon {
+    margin-right: 5px;
+  }
+  &__service-type {
+    @include body-2-bold;
+  }
+  &__description {
+    margin-bottom: 20px;
+    @include body-2;
+    @media (max-width: 1320px) {
+      margin-bottom: 14px;
+    }
+    @media (max-width: 940px) {
+      margin-bottom: 20px;
+    }
+    @media (max-width: 430px) {
+      margin-bottom: 14px;
+    }
+  }
+  &__info {
+    @include flex-style(flex);
+  }
+  &__post-date {
+    color: $dark-grey-color;
+    @include body-2;
+  }
+  &__by {
+    color: $dark-grey-color;
+    @include body-2;
+  }
+  &__author {
+    color: $main-black-color;
+  }
+}
