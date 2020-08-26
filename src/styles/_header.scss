@@ -654,9 +654,13 @@
     }
     &--arrive {
       border-right: 1px solid $input-border-color-lightgrey;
+      -webkit-appearance: none;
+      margin: 0;
     }
     &--depart {
       border-right: 1px solid $input-border-color-lightgrey;
+      -webkit-appearance: none;
+      margin: 0;
     }
     &--guests {
       margin-right: 10px;
@@ -673,6 +677,15 @@
 
       padding: 0;
       background: #fff;
+    }
+    &--arrive,
+    &--depart,
+    &--guests  {
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
     }
     &::placeholder {
       @include body-1;
